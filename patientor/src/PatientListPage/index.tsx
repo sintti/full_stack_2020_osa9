@@ -8,6 +8,7 @@ import { Patient } from "../types";
 import { apiBaseUrl } from "../constants";
 import HealthRatingBar from "../components/HealthRatingBar";
 import { useStateValue } from "../state";
+import { Link } from "react-router-dom";
 
 const PatientListPage: React.FC = () => {
   const [{ patients }, dispatch] = useStateValue();
@@ -59,6 +60,7 @@ const PatientListPage: React.FC = () => {
               <Table.Cell>
                 <HealthRatingBar showText={false} rating={1} />
               </Table.Cell>
+              <Button as={Link} to={`/patients/${patient.id}`} style={{ marginLeft: 10, marginTop: 5,}} primary>Show patient</Button>
             </Table.Row>
           ))}
         </Table.Body>
